@@ -417,15 +417,21 @@ MonoBehaviour:
   jump: 5
   Rigidbody: {fileID: 0}
   Anim: {fileID: 0}
+  SR: {fileID: 0}
   canJump: 0
   facingRight: 1
+  canShoot: 1
+  canMove: 1
+  invinc: 0
   HP: 5
+  ammo: 2
   Skill:
   - {fileID: 6925399936618265905, guid: ffec395778a4f9148b4023322bce3c3a, type: 3}
+  - {fileID: 4147881524980762274, guid: 2f6f3a275d45e274ca184c7a88dba96b, type: 3}
+  - {fileID: 2897951244103061491, guid: 1df3ae640117a2d45b1dbd16f18559ef, type: 3}
+  - {fileID: 2616896797238921376, guid: 095b963617fc8474bb42b7823eb86dde, type: 3}
   skillNumber: 0
-  stage: 0
-  canShoot: 1
-  ammo: 2
+  stage: 3
 --- !u!212 &742791606
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -507,6 +513,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &940760693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940760695}
+  - component: {fileID: 940760694}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &940760694
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940760693}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2225579, y: 0.34125423}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5548842, y: 1.6825085}
+  m_EdgeRadius: 0
+--- !u!4 &940760695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940760693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: 0.55, z: -1.3100882}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1052427051
 GameObject:
   m_ObjectHideFlags: 0

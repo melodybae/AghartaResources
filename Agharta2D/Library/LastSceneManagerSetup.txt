@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/02.Scenes/Game.unity
+- path: D:/Project/Unity/AR/SpaceShooter1/SpaceShooter/Assets/01.Scenes/Play.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

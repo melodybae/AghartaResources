@@ -35,6 +35,7 @@ public class PotionThrow : MonoBehaviour
 
     void Update()
     {
+        transform.Rotate(0,0,-3.0f);
         if(this.transform.position.y < -2)
         {
             Destroy(this.gameObject);
