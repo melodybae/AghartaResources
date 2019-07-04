@@ -4,15 +4,23 @@ using UnityEngine;
 //유은호
 public class PlayerControl : MonoBehaviour
 {
-    private float horizontal; //움직임 감지 변수
+    public float horizontal; //움직임 감지 변수
     public float speed, jump; //횡움직임 속도 점프 속도 변수
+
     public Rigidbody2D Rigidbody;
     public Animator Anim;
-    public float groung_check_radius;
 
-    private bool canJump = false;
-    private bool facingRight = true;
+    public bool canJump = false;
+    public bool facingRight = true;
     public int HP = 5;
+
+    public GameObject[] Skill;
+    public int skillNumber = 0;
+    public int stage = 0;
+    Vector3 playerPos;
+
+    public bool canShoot = true;
+    public int ammo;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +49,20 @@ public class PlayerControl : MonoBehaviour
                 PCMove();//좌우 움직임
             }
             
-            if (canJump && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))//점프가능한지? + 점프키 확인
+            if (canJump && Input.GetKeyDown(KeyCode.LeftAlt))//점프가능한지? + 점프키 확인
             {
                 Anim.SetBool("InAir", true);
                 Rigidbody.AddForce(Vector2.up * jump, ForceMode2D.Impulse);//점프 움직임
+            }
+
+            if (Input.GetKey(KeyCode.LeftControl) && canShoot && ammo > 0)//스킬사용
+            {
+                StartCoroutine(PCAttack(skillNumber));
+            }
+            
+            if (Input.GetKeyDown(KeyCode.LeftShift))//스킬변경
+            {
+                PCSkill();
             }
         }
         else
@@ -100,14 +118,36 @@ public class PlayerControl : MonoBehaviour
         Anim.SetBool("IsDead", true);
     }
 
-    void PCAttack()//플레이어 공격시
+    IEnumerator PCAttack(int skilltype)//플레이어 공격시
     {
+        canShoot = false;
+        ammo -= 1;
+        GameObject potion = Instantiate(Skill[skilltype]) as GameObject;
+        playerPos = this.transform.position;
+        if(facingRight)
+        {
+            playerPos.x += 0.2f;
+        }
+        else
+        {
+            playerPos.x -= 0.2f;
+        }
+           
+        playerPos.y += 1.0f;
+        potion.transform.position = playerPos;
 
+        yield return new WaitForSeconds(0.5f);
+
+        canShoot = true;
     }
 
     void PCSkill()//플레이어 스킬변경
     {
-
+        skillNumber++;
+        if(skillNumber > stage)//스테이지 클리어에 따른 스킬 가능 증가(stage 변수)
+        {
+            skillNumber = 0;
+        }
     }
 
     void PCAnim()

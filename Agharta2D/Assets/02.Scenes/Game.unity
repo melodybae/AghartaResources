@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 742791608}
   m_Layer: 0
   m_Name: PC
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,13 +393,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &742791605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,10 +412,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58aec7980c62004fb72634556677eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontal: 0
   speed: 3
   jump: 5
   Rigidbody: {fileID: 0}
+  Anim: {fileID: 0}
+  canJump: 0
+  facingRight: 1
   HP: 5
+  Skill:
+  - {fileID: 6925399936618265905, guid: ffec395778a4f9148b4023322bce3c3a, type: 3}
+  skillNumber: 0
+  stage: 0
+  canShoot: 1
+  ammo: 2
 --- !u!212 &742791606
 SpriteRenderer:
   m_ObjectHideFlags: 0
